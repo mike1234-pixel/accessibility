@@ -23,6 +23,6 @@ $accordionBtn.on('click', function() {
     let sectionName = $(this).attr('aria-controls');
     let figcaption = $(this).next().children('p:first-child').text();
 
-    $('aside').find('img').attr('src', '/assets/' + sectionName + '.jpeg').attr('alt', decamelize(sectionName))
+    $('aside').find('img').attr('src', './assets/' + sectionName + '.jpeg').attr('alt', decamelize(sectionName))
     $('aside').find('figcaption').text(figcaption)
 })
