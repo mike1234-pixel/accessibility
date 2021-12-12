@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+
+/* typography */
+html {
+    font-size: 10px;
+}
+body {
+    background:azure;
+}
+header {
+    padding: 40px;
+}
+p, li, code {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+}
+li {
+    line-height: 3rem;
+}
+p, li {
+    font-family: 'Overpass', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cabin Sketch', cursive;
+}
+h1 {
+    font-size: 3.8rem;
+    line-height: 5rem;
+}
+h4, h4 code {
+    font-size: 2.8rem;
+    line-height: 4rem;
+    margin: 0 0 20px 0;
+}
+h5 {
+    font-size: 2.4rem;
+    line-height: 3rem;
+    margin: 0 0 10px 0;
+}
+
+/* elements */
+.accordion-button {
+    cursor: pointer;
+    width: 100%;
+    /* font-family: 'Gruppo', cursive; */
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(74,172,196,1) 0%, rgba(220,255,218,1) 37%, rgba(0,212,255,1) 100%);
+    border: none;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+}
+.accordion-button:hover, .accordion-button:focus, .accordion-button:active {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(151,235,255,1) 0%, rgba(240,171,237,1) 37%, rgba(0,212,255,1) 100%);
+}
+.accordion-button::after {
+    transition: all 0.2s;
+}
+.accordion-button[aria-expanded="true"]::after {
+    transform: rotate(360deg);
+}
+.accordion-button h4 {
+    margin: 0;
+}
+
+.accordion-content {
+    display: none;
+    padding: 20px;
+}
+.markdown pre {
+    background: darkslategray;
+    color: white;
+    padding: 20px;
+    overflow: scroll;
+}
+
+.img-container {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(74,172,196,1) 0%, rgba(220,255,218,1) 37%, rgba(0,212,255,1) 100%);
+    padding: 20px;
+}
+
+aside img {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+    aside {
+        display: none;
+    }
+}
+
+footer {
+    margin-top: 40px;
+    padding: 40px 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(74,172,196,1) 0%, rgba(220,255,218,1) 37%, rgba(0,212,255,1) 100%);
+    box-shadow: inset 0 1px 0 rgb(0 0 0 / 13%);
+}
+
+footer:hover, footer:focus, footer:active {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(151,235,255,1) 0%, rgba(240,171,237,1) 37%, rgba(0,212,255,1) 100%); 
+}
+
+footer ul li {
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+footer a {
+    transition: all 0.2s;
+    color: #d63384;
+}
+
+footer a:hover, footer ul li a:focus, footer ul li a:active {
+    color: rgb(12, 99, 228);
+}

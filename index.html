@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+    <title>Accessibility Basics</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <header class="col-sm-12">
+            <h1>Accessibility Basics</h1>
+            <p>Below is a practical reference for some common ways to ensure websites are accessible to all users.</p>
+        </header>
+        <main class="col-md-8">        
+            <div id="accordion">
+                <button class="accordion-button" aria-expanded="false" aria-controls="impairments">
+                    <h4>Types of Impairment</h4>
+                </button>
+                <div class="accordion-content" id="impairments">
+                    <p>Web users may face barriers to accessibility that fall under 4 categories: visual, auditry, motor, cognitive.</p>
+                    <ul>
+                        <li>Visual - color blindness, blindness</li>
+                        <li>Cognitive - nausea, headaches, seizures, migraines from animations</li>
+                        <li>Motor - keyboard accessibility / assistive tools</li>
+                        <li>Auditory - auditory processinig, captions, subtitles</li>
+                    </ul>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="screenReaders">
+                    <h4>Screen Readers</h4>
+                </button>
+                <div class="accordion-content" id="screenReaders">
+                    <p>A screen reader is a form of assistive technology (AT) that renders text and image content as speech or braille output. Screen readers are essential to people who are blind, and are useful to people who are visually impaired, illiterate, or have a learning disability.</p>
+                    <p>A highly rated and easy to install screen reader is the <a href="https://chrome.google.com/webstore/detail/pericles-text-to-speech-s/oacindbdmlbdeidohafnfocfckkhjlbg/related?hl=en" target="_blank">Pericles Screen Reader for Google Chrome</a></p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="keyboardAccessibility">
+                    <h4>Keyboard accessibility</h4>
+                </button>
+                <div class="accordion-content" id="keyboardAccessibility">
+                    <p>It's important to ensure that all content on a website can be accessed with the keyboard alone.</p>
+                    <p>Keyboard accessibility is one of the most important aspects of web accessibility. Many users with motor disabilities rely on a keyboard. Some people have tremors which don't allow for fine muscle control. Others have little or no use of their hands, or no hands at all.</p>
+                    <p>Blind users also typically use a keyboard for navigation. Users without disabilities may use a keyboard for navigation because of preference or efficiency.</p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="aria">
+                    <h4>ARIA</h4>
+                </button>
+                <div class="accordion-content" id="aria">
+                    <p>ARIA is shorthand for <i>Accessible Rich Internet Applications</i></p>
+                    <p>The ARIA specification provides an ontology of <strong>roles, states, and properties</strong> that define accessible user interface elements and can be used to improve the accessibility and interoperability of web content and applications.</p> 
+                    <p>Ontology means specifying relationships between different elements, e.g. <code>aria-controls</code> specifies which element is controlled by another element - establishing the relationship between the two.</p>
+                    <p>These semantics are designed to allow an author to properly convey user interface behaviors and structural information to assistive technologies in document-level markup.</p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="ariaLandmarks">
+                    <h4>ARIA Landmarks</h4>
+                </button>
+                <div class="accordion-content" id="ariaLandmarks">
+                    <p>With landmarks, blind users using a screen reader have the ability to jump to sections of a web page.</p>
+                    <p>These landmarks are:</p>
+                        <code>
+                            <ul>
+                                <li>&lt;header&gt;</li>
+                                <li>&lt;nav&gt;</li>
+                                <li>&lt;main&gt;</li>
+                                <li>&lt;form&gt;</li>
+                                <li>&lt;aside&gt;</li>
+                                <li>&lt;section&gt;</li>
+                                <li>&lt;footer&gt;</li>
+                            </ul>  
+                        </code>
+                    <p>Be sure to try to use these tags in appropriate places as they make your pages more navigable for users of screen readers.</p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="ariaRoles">
+                    <h4>ARIA Roles</h4>
+                </button>
+                <div class="accordion-content" id="ariaRoles">
+                    <p>The <code>role</code> attribute can provide semantics to elements that do not have them, such as divs and spans.</p>
+                    <p>Many elements have roles by default, e.g. a <code>&lt;p&gt;</code> has the role of paragraph and an <code>&lt;input type="radio"&gt;</code> has a role of radio. Elements that have semantic meaning do not require a <code>role</code> attribute.</p>
+                    <p>Below are some common use cases for when you might need to implement the <code>role</code> attribute.</p>
+                    <h5><code>role="button"</code></h5>
+                        <p>It's best to use <code>&lt;button&gt;</code> for clickable elements.</p>
+                        <p>However, if you must use a different HTML element to do the same functionality as a button, use the aria role='button' to let screen readers know the area is clickable.</p>
+                    <h5><code>role="search"</code></h5>
+                        <p>A search bar should be set up in a form as paired label and input.</p>
+                        <p>Always include an ARIA role='search' somewhere on the form or fieldset, i.e. <code>&lt;form role="search" action="/" method="get" &gt;</code></p>
+                        <p>Also, always include the word ‘search’ in the label somewhere (you can visually hide it, though) and in the submit button.</p>
+            
+            <code class="markdown">
+                <form role='search' action="/" method="get">
+                    <label for='header-search'>
+                        <span class='sr-only'>Search</span>
+                    </label>
+                    
+                    <input type='text' id='header-search' placeholder="search"/>
+                    
+                    <button type='submit'>
+                        <i class="fas fa-search"></i>
+                        <span class='sr-only'>Submit Search</span>
+                    </button>
+                </form>
+            </code>
+                    <h5><code>role="image"</code></h5>
+                        <p>For svg image tags always include <code>role="image"</code> on the <code>img</code> tag so that the image is not skipped by the screen reader.</p>
+                        <p>Additionally, always include <code>alt</code> text.</p>
+                        <p>If the SVG is decorative, use an empty <code>alt=''</code>. If you do not, a screenreader will read the source tag which sounds awful.</p>
+                        <p><strong>Inline svgs</strong> should be written like the following, with the <code>title</code> tag replacing the <code>alt</code> attribute, and an <code>aria-labelledby</code> attribute pointing to the title.</p>      
+            <code class="markdown">
+                <svg aria-labelledby="title">
+                    <title id="title" lang="en">Red Rectangle</title>
+                    <g>
+                        <rect x="0" y="0" width="100" height="50" fill="red" />
+                    </g>
+                </svg>
+            </code>
+                        <p>The <code>title</code> attribute should also be used on contextually important <strong>icon fonts</strong>. However, if the icon font is purely decorative then this is not required.</p>
+                    <h5><code>role="tab"</code></h5>
+                        <p>Used for tabs</p>
+                    <h5><code>role="tabpanel"</code></h5>
+                        <p>Used for tabpanel content</p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="ariaStatesAndProperties">
+                    <h4>ARIA States &amp; Properties</h4>
+                </button>
+                <div class="accordion-content" id="ariaStatesAndProperties">
+                        <p>Properties are static characteristics of an element, whereas states are dynamic.</p>
+                    <h4>States</h4>
+                        <p>ARIA States are more dynamic and are typically updated with JavaScript as a user interacts with a page. Screen readers are notified when these states change, and can announce these changes to users after an interaction takes place.</p>
+                        <p>A general rule of thumb would be that if an element's state changes, consider what ARIA states need to be changed on that element as they occur.</p>
+                    <h5><code>aria-expanded</code></h5>
+                        <p>aria-expanded is used to indicate the state of a collapsible element</p>
+                    <h5><code>aria-selected</code></h5>
+                        <p>Can be used in a similar way to <code>aria-expanded</code> and is particularly suitable for tabs. This can be combined with <code>aria-hidden</code> for extra clarity.</p>
+                    <h5><code>aria-hidden</code></h5>
+                        <p>Indicates that the element and all of its descendants are not visible or perceivable to any user as implemented by the author.</p>
+                        <p><code>aria-hidden</code> is suitable to toggle on a popup / modal versus the main content of the page, for example.</p>
+                    <h5><code>aria-disabled</code></h5>
+                        <p> Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable.</p>
+                    <h5><code>aria-current</code></h5>
+                        <p>The aria-current attribute is used when an element within a set of related elements is visually styled to indicate it is the current item in the set.</p>
+                        <p>For example, a page token used to indicate a link within a set of pagination links, where the link is visually styled to represent the currently-displayed page.</p>
+                    <h4>Properties</h4>
+                        <p>ARIA Properties often describe relationships with other elements, and for the most part, do not change once they’re set.</p>
+                    <h5><code>aria-controls</code></h5>
+                        <p>Identifies the element (or elements) whose contents or presence are controlled by the current element.</p>
+                        <p>For example, a tab controls the display of its associated tab panel.</p>
+                        <code>aria-controls="idOfControlledElement"</code>
+                    <h5><code>aria-required</code></h5>
+                        <p>Used to indicate that user input is required on an element before a form can be submitted.</p>
+                        <p>However in html5 the <code>required</code> attribute does the same job, meaning <code>aria-required</code> is not necessary today.</p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="accessKey">
+                    <h4>The <code>accesskey</code> attribute</h4>
+                </button>
+                <div class="accordion-content" id="accessKey">
+                    <p>The <code>accesskey</code> attribute specifies a shortcut key to activate/focus an element.</p>
+                    <p>Makes navigating the site better for users of screen readers as pointing and clicking is not always an option for them.</p>
+                    <p>accesskeys are designed to give the user more keyboard shortcuts to navigate the site, so they are particularly suitable for internal page links.</p>
+                    <p>use a letter that has meaning, e.g. the first letter of the page being linked to.</p>
+                    <p>This link to the <a href="/" accesskey="h">homepage</a> (<code>&lt;a href="/" accesskey="h"&gt;homepage&lt;/a&gt;</code>) has an accesskey of 'h'.</p>
+                    <p>Access keys are accessed differently depending on the browser and OS. For Chrome on Mac press ctrl + opt + the access key.</p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="tabIndex">
+                    <h4>The <code>tabindex</code> attribute</h4>
+                </button>
+                <div class="accordion-content" id="tabIndex">
+                    <p>Certain elements, such as links and form controls, automatically receive keyboard focus when a user tabs through a page. It's in the same order as the elements come in the HTML source markup. This same functionality can be given to other elements, such as <code>div</code>, <code>span</code>, and <code>p</code>, by placing a <code>tabindex="0"</code> attribute on them.</p> 
+                    <p>You can use <code>tabindex</code> to set the tab order of elements in the document. This is best avoided as it can be confusing.</p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="linkText">
+                    <h4>Descriptive Link Text</h4>
+                </button>
+                <div class="accordion-content" id="linkText">
+                    <p>Screen readers read the text between the a tag to the user.</p> 
+                    <p>The text should therefore be descriptive of what the anchor links to.</p>
+                    <p>Having a list of "click here" or "read more" links isn't helpful. Instead, use brief but descriptive text that desribes the button's/link's purpose and its destination.</p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="prefersReducedMotion">
+                    <h4><code>prefers-reduced-motion</code> media query</h4>
+                </button>
+                <div class="accordion-content" id="prefersReducedMotion">
+                    <p>Browser users can set their browser to not display unnecessary animations.</p>
+                    <p>The prefers-reduced-motion CSS media feature is used to detect if the user has requested that the system minimize the amount of non-essential motion it uses. Readers with vestibular motion disorders may wish to enable the reduce motion feature on their device before viewing the animation</p>
+                    <p>Tailwind css classes can be conditionally applied using <code>motion-reduce</code>, e.g. <code>motion-reduce:transition-none</code></p>
+                    <p><code>prefers-reduced-motion</code> is a media query you can use for people that have requested that unnecessary animations are not displayed - supported on all major browsers.</p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="srOnly">
+                    <h4><code>.sr-only</code> class</h4>
+                </button>
+                <div class="accordion-content" id="srOnly">
+                    <p>Hide an element to all devices except screen readers with <code>.sr-only</code>.</p>
+                    <p>The <code>sr-only</code> class uses the following css:</p>
+                    <p>
+                        <code>
+                            .sr-only {
+                                position: absolute;
+                                left: -10000px;
+                                width: 1px;
+                                height: 1px;
+                                top: auto;
+                                overflow: hidden;
+                            }
+                        </code>
+                    </p>
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="forms">
+                    <h4>Forms</h4>
+                </button>
+                <div class="accordion-content" id="forms">
+                    <p>If the input is required, put “Required” or “(required)” within a span in the label. Consider not using “*” to indicate required inputs as it is often not read by screen readers.</p>
+                    <p>Do not use placeholder text. Placeholder text poses a variety of accessibility issues (including possible problems with color/contrast, users thinking the form input is already filled out, and placeholder text replacing a form label).</p>
+                    <p>Give all the information about what is required to fill out the input in the form label, not the placeholder.</p>
+                    <p>Checkboxes and radio buttons should be structured in the following way, with the use of a fieldset and legend to indicate related form elements:</p>
+            
+            <code class="markdown">
+            
+                <fieldset>
+                    <legend id='legend-1'>Can we add you to our email mailing list? <span class="required">(required)</span></legend>
+                
+                    <ul aria-labelledby='legend-1' role='radiogroup'>
+                    <li>
+                        <label for="yes">
+                        <span class="error-message">
+                            Please select yes or no.
+                        </span>
+                
+                        <input id="yes" required="" type="radio" name="answers" value="yes">
+                
+                        Yes
+                        </label>
+                    </li>
+                    <li>
+                        <label for="no">
+                        <input id="no" type="radio" name="answers" value="no">
+                
+                        No
+                        </label>
+                    </li>
+                    </ul>
+                </fieldset>
+                
+            </code>
+            
+                </div>
+                <button class="accordion-button" aria-expanded="false" aria-controls="maps">
+                    <h4>Maps</h4>
+                </button>
+                <div class="accordion-content" id="maps">
+                    <p>An embedded Google Map alone is not screen reader accessible. When using Google Maps, follow these tips:</p>
+                    <ul>
+                        <li>If the map is used to provide directions to a location, make sure to also provide text-based directions, or a link to text-based directions adjacent to the map.</li>
+                        <li>If embedding a Google Map within an iFrame, make sure the iFrame includes a title attribute.</li>
+                        <li>If using an <code>img</code> tag for your map - include directions in the <code>alt text</code>.</li>
+                        <li>If you are using a map to display multiple locations, provide a text list of locations.</li>
+                        <li>Descriptive heading: Include a heading right before the map iFrame which describes the purpose of the map.</li>
+                        <li>Determine the purpose of the map: If the map is on the page to show landmarks, describe those landmarks and their locations, either in an unordered list or a paragraph. If the map is to show directions, then those directions should be spelled out in basic, text-based directions.</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <aside class="col-md-4">
+            <div class="img-container">
+                <figure>
+                    <img src="/assets/open.jpeg" alt="holding up an 'open' sign">
+                    <figcaption>Web accessibility is the inclusive practice of ensuring there are no barriers that prevent interaction with, or access to, websites by people with disabilities.</figcaption>
+                </figure>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                <h6>To find out more about web accessibility please refer to the following sources:</h6>
+                <ul>
+                    <li>
+                        <a href="https://www.w3schools.com/accessibility/index.php">w3schools Accessibility Guidelines</a>
+                    </li>
+                    <li>
+                        <a href="https://www.freecodecamp.org/learn/responsive-web-design/#applied-accessibility" target="_blank">freeCodeCamp Applied Accessibility Course</a>
+                    </li>
+                    <li>
+                        <a href="http://web-accessibility.carnegiemuseums.org/" target="_blank">Carnegie Museums Web Accessibility Guidelines</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                Accessibility Basics by <a href="https://github.com/mike1234-pixel" target="_blank">Mike Tandy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js" integrity="sha512-hzyXu3u+VDu/7vpPjRKFp9w33Idx7pWWNazPm+aCMRu26yZXFCby1gn1JxevVv3LDwnSbyKrvLo3JNdi4Qx1ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./index.js"></script>
+
+</body>
+</html>
