@@ -27,7 +27,7 @@ $accordionBtn.on('click', function() {
     let sectionName = $(this).attr('aria-controls');
     let figcaption = $(this).next().children('p:first-child').text();
 
-    $asideImg.attr('src', '/assets/' + sectionName + '.jpeg').attr('alt', decamelize(sectionName))
+    $asideImg.attr('src', './assets/' + sectionName + '.jpeg').attr('alt', decamelize(sectionName))
     $asideFigcaption.text(figcaption)
     $asideTitle.text(sectionTitle)
 })
